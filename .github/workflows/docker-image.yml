@@ -38,9 +38,13 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
+          push: true
           file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64/v8
-          push: ${{ github.event_name != 'pull_request' }}
+          platforms: |
+            linux/amd64
+            linux/arm64/v8
+          build-args: |
+            APP_NAME=nginx-webdav
           tag: |
-            howxchove/nginx-webdav:${{ steps.date.outputs.today }}
-            howxchove/nginx-webdav:latest
+            nginx-webdav:${{ steps.date.outputs.today }}
+            nginx-webdav:latest
