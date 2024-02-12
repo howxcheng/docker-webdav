@@ -8,10 +8,10 @@ else
     sed -i 's%auth_basic_user_file webdavpasswd;% %g' /etc/nginx/nginx.conf
 fi
 
-if [ -n "${UID:-}" ]; then
+if [ -n "${PUID:-}" ] && [ -n "${PGID:-}" ]; then
     chmod go+w /dev/stderr /dev/stdout
-    gosu $UID mkdir -p /media/.tmp
-    exec gosu $UID "$@"
+    gosu $PUID:$PGID mkdir -p /media/.tmp
+    exec gosu $PUID:$PGID "$@"
 else
     mkdir -p /media/.tmp
     exec "$@"
