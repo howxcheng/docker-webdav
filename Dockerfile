@@ -3,7 +3,8 @@ FROM ubuntu:latest
 ARG http_proxy
 ARG https_proxy
 RUN apt-get update \
-    && apt-get install -yq --no-install-recommends nginx-extras gosu apache2-utils \
+    && apt-get full-upgrade -y \
+    && apt-get install -yq --no-install-recommends nginx nginx-extras gosu apache2-utils libnginx-mod-http-dav-ext libnginx-mod-http-auth-pam \
     && rm -rf /var/lib/apt/lists/*
 
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
