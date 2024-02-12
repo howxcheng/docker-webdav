@@ -46,5 +46,5 @@ jobs:
           build-args: |
             APP_NAME=nginx-webdav
           tag: |
-            nginx-webdav:${{ steps.date.outputs.today }}
-            nginx-webdav:latest
+            howxchove/nginx-webdav:${{ steps.date.outputs.today }}
+            howxchove/nginx-webdav:latest
