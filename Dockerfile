@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:noble
 
 ARG http_proxy
 ARG https_proxy
