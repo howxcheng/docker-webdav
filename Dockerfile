@@ -1,4 +1,4 @@
-FROM ubuntu:noble
+FROM ubuntu:noble-20240127.1
 
 ARG http_proxy
 ARG https_proxy
