@@ -16,7 +16,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build --file Dockerfile -t howxchove/nginx-webdav:${{ github.sha }} .
-          docker tag howxchove/nginx-webdav:${{ github.sha }} howxchove/nginx-webdav:latest
+          docker tag howxchove/nginx-webdav:${{ github.sha }} howxcheng/nginx-webdav:latest
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
@@ -26,5 +26,5 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push howxchove/nginx-webdav:latest
-          docker push howxchove/nginx-webdav:${{ github.sha }}
+          docker push howxcheng/nginx-webdav:latest
+          docker push howxcheng/nginx-webdav:${{ github.sha }}
