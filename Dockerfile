@@ -2,6 +2,7 @@ FROM ubuntu:noble-20240127.1
 
 ARG http_proxy
 ARG https_proxy
+# 安装依赖
 RUN apt-get update \
     && apt-get full-upgrade -y \
     && apt-get install -yq --no-install-recommends nginx nginx-extras gosu apache2-utils libnginx-mod-http-dav-ext libnginx-mod-http-auth-pam \
